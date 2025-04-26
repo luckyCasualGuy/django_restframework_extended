@@ -1,17 +1,27 @@
+import traceback as tb
+from io import BytesIO
+import base64
+import re
+import logging
+from PIL import Image
+import fitz
+from cerberus import Validator
+
+
 from django.db import IntegrityError
 from django.db.models.base import ModelBase
 from django.db import models
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.request import Request
-from rest_framework.exceptions import APIException, ParseError, AuthenticationFailed, MethodNotAllowed
+from rest_framework.exceptions import (
+    APIException,
+    ParseError,
+    AuthenticationFailed,
+    MethodNotAllowed
+)
 from rest_framework.pagination import PageNumberPagination
 from rest_framework import serializers
-
-import traceback as tb, base64, re, logging, fitz
-from cerberus import Validator
-from io import BytesIO
-from PIL import Image
 
 
 # BASIC FUNCTIONALITIES USED IN VIEWS
