@@ -1,0 +1,1 @@
+from django_restframework_extended import Basic
