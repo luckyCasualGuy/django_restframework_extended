@@ -227,7 +227,7 @@ class APIViewBasic(APIView):
 
 
     def finalize_response(self, request: Request, response: Response, *args, **kwargs):
-        if response:
+        if response and isinstance(response, Response):
             if self.LOG_RESPONSE_KEYS_ONLY: self.LOGGER.debug(f"response: {response.data.keys()}, status: {response.status_code}")
             else:
                 
@@ -442,7 +442,6 @@ class APIViewModelList(APIViewBasic):
     PAGINATOR = BasicPaginator()
 
 
-
     MODEL: models.Model = None
     
     
@@ -469,9 +468,7 @@ class APIViewModelList(APIViewBasic):
         response = self.SERIALIZER(instances, many=True).data
         
         if self.PAGINATOR:
-            print(response)
             response = self.PAGINATOR.get_paginated_response(response)
-            print(response)
             return response
 
 
