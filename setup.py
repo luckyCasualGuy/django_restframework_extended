@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-VERSION = '0.0.3'
+VERSION = '0.0.4'
 DESCRIPTION = 'Django Rest Framework Extended Functionalities'
 LONG_DESCRIPTION = 'This package is very opinionated'
 
